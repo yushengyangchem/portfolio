@@ -1,0 +1,177 @@
+main.home-shell {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  background: var(--card);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+}
+
+.home-header {
+  margin-bottom: 4px;
+}
+
+.home-title {
+  margin-bottom: 8px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.home-subtitle {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.home-grid {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.home-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  transition:
+    transform var(--ease-standard),
+    border-color var(--ease-standard),
+    background-color var(--ease-standard);
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(192, 57, 43, 0.4);
+  background: #fff7ef;
+}
+
+.home-card h2 {
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+}
+
+.home-card--intro h2 {
+  margin-bottom: 0;
+}
+
+.home-card--intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-card--intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-intro-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.home-intro-title {
+  margin: 0;
+}
+
+.home-card p {
+  font-size: 0.96rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.home-tab-panel {
+  margin-top: 12px;
+}
+
+.home-footnote {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.home-footnote-row {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.home-github-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: inherit;
+  border: var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transition:
+    transform var(--ease-standard),
+    border-color var(--ease-standard),
+    background-color var(--ease-standard);
+}
+
+.home-github-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(192, 57, 43, 0.4);
+  background: #fff7ef;
+}
+
+.home-github-link svg {
+  display: block;
+}
+
+.home-card--clickable {
+  cursor: pointer;
+}
+
+:root[data-theme="dark"] main.home-shell {
+  background: rgba(28, 37, 46, 0.92);
+}
+
+:root[data-theme="dark"] .home-card {
+  background: rgba(28, 37, 46, 0.88);
+}
+
+:root[data-theme="dark"] .home-card:hover {
+  border-color: rgba(222, 127, 91, 0.42);
+  background: rgba(222, 127, 91, 0.14);
+}
+
+:root[data-theme="dark"] .home-github-link {
+  background: rgba(28, 37, 46, 0.88);
+}
+
+:root[data-theme="dark"] .home-github-link:hover {
+  border-color: rgba(222, 127, 91, 0.42);
+  background: rgba(222, 127, 91, 0.14);
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 28px 16px 36px;
+  }
+
+  main.home-shell {
+    padding: 24px 18px;
+  }
+
+  .home-intro-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .home-footnote-row {
+    align-items: flex-start;
+  }
+}

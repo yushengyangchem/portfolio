@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Practical TS Optimization Workflow in Gaussian</title>
+    <meta
+      name="description"
+      content="A practical linked-job workflow for transition-state optimization in Gaussian."
+    />
+    <link
+      rel="canonical"
+      href="https://yushengyangchem.github.io/portfolio/blog/posts/ts-optimization-in-gaussian.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="A Practical TS Optimization Workflow in Gaussian"
+    />
+    <meta
+      property="og:description"
+      content="A practical linked-job workflow for transition-state optimization in Gaussian."
+    />
+    <meta
+      property="og:url"
+      content="https://yushengyangchem.github.io/portfolio/blog/posts/ts-optimization-in-gaussian.html"
+    />
+    <meta
+      property="og:image"
+      content="https://yushengyangchem.github.io/portfolio/assets/images/photo.jpg"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="A Practical TS Optimization Workflow in Gaussian"
+    />
+    <meta
+      name="twitter:description"
+      content="A practical linked-job workflow for transition-state optimization in Gaussian."
+    />
+    <link
+      rel="icon"
+      href="../../favicon.svg?v=20260301"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      href="../../favicon-dark.svg?v=20260301"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="icon" href="../../favicon.svg?v=20260301" type="image/svg+xml" />
+    <script src="../../assets/js/common/theme-init.js?v=20260301"></script>
+    <link rel="stylesheet" href="../../assets/css/common/base.css?v=20260301" />
+    <link rel="stylesheet" href="../../assets/css/blog/layout.css?v=20260301" />
+    <script src="../../assets/js/blog/page.js?v=20260301" defer></script>
+    <script src="../../assets/js/common/theme.js?v=20260301" defer></script>
+  </head>
+  <body>
+    <div class="bg-orb bg-orb--one" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb--two" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <main class="blog-shell">
+      <header class="blog-post-header">
+        <p><a class="blog-top-link" href="../index.html">← Back to Blog</a></p>
+        <h1>A Practical TS Optimization Workflow in Gaussian</h1>
+        <p class="blog-meta">February 2026 · Computational Chemistry</p>
+      </header>
+
+      <section class="blog-block" aria-label="Post content">
+        <p>
+          When I optimize a transition state (TS) in Gaussian, I rarely jump
+          directly into a full TS search. I usually run constrained optimization
+          first, then TS optimization, but in one continuous Gaussian job.
+        </p>
+        <div class="blog-note" aria-label="Quick summary">
+          <p>
+            Workflow summary: constrain key coordinates in Link 1, then read the
+            checkpoint and run TS optimization in Link 2.
+          </p>
+        </div>
+
+        <h2>One continuous job: constrained optimization + TS search</h2>
+        <p>
+          In the first link, I keep critical internal coordinates fixed while
+          relaxing the rest of the structure with
+          <code class="blog-kbd">Opt=ModRedundant</code>.
+        </p>
+        <p>
+          In the second link, I read the optimized structure from the checkpoint
+          file and launch
+          <code class="blog-kbd">Opt=(TS,CalcFC,NoEigenTest,NoFreeze)</code>
+          for TS optimization.
+        </p>
+
+        <p class="blog-code-label">Gaussian input example</p>
+        <pre><code>%chk=ts.chk
+%nprocshared=4
+%mem=8GB
+#p B3LYP/6-31G(d) Opt=ModRedundant
+
+Title Card Required
+
+0 1
+... geometry ...
+
+B i j F
+
+--Link1--
+%chk=ts.chk
+%nprocshared=4
+%mem=8GB
+#p B3LYP/6-31G(d) Opt=(TS,CalcFC,NoEigenTest,NoFreeze) Freq Geom=AllCheck Guess=Read
+
+
+</code></pre>
+        <p class="blog-code-label">
+          Diels–Alder reaction transition state example
+        </p>
+        <pre><code>%chk=DA.chk
+%nprocshared=4
+%mem=8GB
+#p B3LYP/6-31G(d) Opt=ModRedundant
+
+DA
+
+0 1
+C           0.44704         1.43712         0.48957
+H           0.12659         1.06846         1.45731
+H           0.39419         2.51748         0.37881
+C           1.32291         0.70351        -0.28987
+H           1.87072         1.21327        -1.08117
+C           1.32281        -0.70367        -0.28984
+H           1.87053        -1.21353        -1.08115
+C           0.44686        -1.43713         0.48965
+H           0.12647        -1.06837         1.45738
+H           0.39385        -2.51748         0.37893
+C          -1.57675         0.69306        -0.22727
+H          -2.07546         1.23594         0.57059
+H          -1.47383         1.23605        -1.16002
+C          -1.57680        -0.69292        -0.22738
+H          -1.47383        -1.23577        -1.16021
+H          -2.07561        -1.23590         0.57035
+
+B 1 11 F
+B 8 14 F
+
+--Link1--
+%chk=DA.chk
+%nprocshared=4
+%mem=8GB
+#p B3LYP/6-31G(d) Opt=(TS,CalcFC,NoEigenTest,NoFreeze) Freq Geom=AllCheck Guess=Read
+
+
+</code></pre>
+
+        <h2>Why these TS options</h2>
+        <ul>
+          <li>
+            <code class="blog-kbd">TS</code>: tells Gaussian to locate a
+            first-order saddle point.
+          </li>
+          <li>
+            <code class="blog-kbd"> CalcFC</code>: builds an initial force
+            constant matrix for a better search direction.
+          </li>
+          <li>
+            <code class="blog-kbd">NoEigenTest</code>: avoids early failure when
+            the initial Hessian is not ideal.
+          </li>
+          <li>
+            <code class="blog-kbd">NoFreeze</code>: ensures previously
+            constrained coordinates are fully released in TS optimization.
+          </li>
+        </ul>
+
+        <p>
+          Always verify the result with frequency analysis and IRC when needed:
+          the TS should have exactly one imaginary frequency, and the IRC should
+          connect to the expected reactant and product minima.
+        </p>
+        <p>
+          This linked-job workflow is not the only method, but it is often more
+          controllable than a single-shot TS search, especially for medium-sized
+          organic systems.
+        </p>
+      </section>
+    </main>
+    <button class="blog-back-top" id="blog-back-top" type="button" hidden>
+      ↑ Top
+    </button>
+  </body>
+</html>

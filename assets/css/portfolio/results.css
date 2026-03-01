@@ -1,0 +1,155 @@
+.result-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.result-heading__icon {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(192, 57, 43, 0.15);
+  color: var(--accent);
+}
+
+.result-heading__icon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.card ul {
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.card ol {
+  padding-left: 22px;
+  color: var(--muted);
+}
+
+.result-list {
+  margin: 8px 0 14px;
+}
+
+#papers-list h4,
+#patents-list h4 {
+  margin: 12px 0 6px;
+  padding: 0 0 0 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  line-height: 1.3;
+  border: 0;
+  border-left: 3px solid rgba(30, 111, 92, 0.45);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#papers-list {
+  counter-reset: paper-item;
+}
+
+#patents-list {
+  counter-reset: patent-item;
+}
+
+#papers-list .result-list,
+#patents-list .result-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+#papers-list .result-list li,
+#patents-list .result-list li {
+  position: relative;
+  padding-left: 2em;
+}
+
+#papers-list .result-list li {
+  counter-increment: paper-item;
+}
+
+#patents-list .result-list li {
+  counter-increment: patent-item;
+}
+
+#papers-list .result-list li::before,
+#patents-list .result-list li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.6em;
+  text-align: right;
+  color: var(--accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+#papers-list .result-list li::before {
+  content: counter(paper-item) ".";
+}
+
+#patents-list .result-list li::before {
+  content: counter(patent-item) ".";
+}
+
+.card li {
+  margin-bottom: 8px;
+}
+
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.edu-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.edu-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.edu-text {
+  display: grid;
+  gap: 4px;
+}
+
+.edu-time {
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.edu-degree {
+  margin-top: 6px;
+}
+
+.edu-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(36, 30, 25, 0.12);
+  padding: 4px;
+}

@@ -1,0 +1,111 @@
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding-top: 32px;
+  border-top: 1px solid rgba(36, 30, 25, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 10;
+  border: var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition:
+    color var(--ease-standard),
+    border-color var(--ease-standard),
+    background-color var(--ease-standard);
+}
+
+.blog-back-top:hover {
+  color: var(--accent);
+  border-color: rgba(192, 57, 43, 0.4);
+  background: #fff7ef;
+}
+
+.blog-back-top:active,
+.blog-back-top:focus,
+.blog-back-top:focus-visible {
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .blog-back-top {
+  background: rgba(28, 37, 46, 0.94);
+  border-color: rgba(237, 242, 247, 0.2);
+}
+
+:root[data-theme="dark"] .blog-back-top:hover {
+  color: #ffd7c5;
+  border-color: rgba(222, 127, 91, 0.5);
+  background: rgba(222, 127, 91, 0.16);
+}
+
+:root[data-theme="dark"] .blog-back-top:active,
+:root[data-theme="dark"] .blog-back-top:focus,
+:root[data-theme="dark"] .blog-back-top:focus-visible {
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 32px 6vw 48px;
+  }
+
+  .hero__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .core-stats,
+  .hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .focus-list {
+    grid-template-columns: 1fr;
+  }
+
+  .card__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .company-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-back-top {
+    right: 14px;
+    bottom: 14px;
+  }
+}
