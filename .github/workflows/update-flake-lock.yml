@@ -1,0 +1,54 @@
+name: Update flake.lock
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-flake-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Update flake.lock
+        run: nix flake update
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet HEAD -- flake.lock; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(nix): update flake.lock"
+          title: "chore(nix): update flake.lock"
+          body: |
+            Automated update for `flake.lock`.
+
+            - Trigger: monthly scheduled workflow
+            - Command: `nix flake update`
+            - Nix version: ${{ steps.install-nix.outputs.nix-version }}
+          branch: chore/update-flake-lock
+          delete-branch: true
+          labels: |
+            dependencies
+            nix
