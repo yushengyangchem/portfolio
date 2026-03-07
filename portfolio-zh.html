@@ -389,191 +389,90 @@
           </h2>
         </div>
         <div class="skills">
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>量子计算与量子化学</h3>
-              <span class="skill-level">核心</span>
+          <article class="card reveal experience-project">
+            <div class="project-head">
+              <div class="project-title-row">
+                <h3>量子计算与量子化学</h3>
+                <span class="project-year">核心</span>
+              </div>
+              <p class="project-meta">
+                面向真实问题构建科学上站得住、工程上可落地的量子工作流。
+              </p>
             </div>
-            <p class="skill-summary">
-              聚焦“算法正确性 + 化学可解释性 + 工程可复现”三条主线。
+            <p class="project-summary">
+              VQE
+              与哈密顿量模拟实现；量子电路构建与验证；电子结构计算流程设计、结果分析与基准对比。
             </p>
-            <ul class="skill-list">
-              <li>VQE 等量子算法的建模、实现与收敛分析</li>
-              <li>量子电路构建与哈密顿量仿真验证</li>
-              <li>量子化学流程：结构优化、能量计算与结果解释</li>
-              <li>全振幅/含噪模拟器下的实验设计与基准测试</li>
-            </ul>
-            <div class="skill-tags">
+            <div class="project-tags">
               <span>VQE</span>
-              <span>Hamiltonian Simulation</span>
+              <span>哈密顿量模拟</span>
               <span>量子化学</span>
-              <span>噪声建模</span>
+              <span>Benchmarking</span>
             </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>后端开发</h3>
-              <span class="skill-level">熟练</span>
+          </article>
+          <article class="card reveal experience-project">
+            <div class="project-head">
+              <div class="project-title-row">
+                <h3>后端与性能工程</h3>
+                <span class="project-year">进阶</span>
+              </div>
+              <p class="project-meta">
+                将科研原型收敛为稳定服务，兼顾性能、维护性与版本化交付。
+              </p>
             </div>
-            <p class="skill-summary">
-              以性能、稳定性与可维护性为目标构建科研/工程服务。
+            <p class="project-summary">
+              Python/FastAPI 服务架构；C/C++ 与 CUDA
+              加速路径；构建、发布与版本化交付流程。
             </p>
-            <ul class="skill-list">
-              <li>Python / FastAPI 服务开发与接口设计</li>
-              <li>C / C++ 混合栈工程实现</li>
-              <li>CUDA 加速与关键路径性能优化</li>
-              <li>工程化交付：版本管理、构建脚本与发布流程</li>
-            </ul>
-            <div class="skill-tags">
+            <div class="project-tags">
               <span>FastAPI</span>
-              <span>Rust</span>
+              <span>C/C++</span>
               <span>CUDA</span>
               <span>Git</span>
             </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>前端开发</h3>
-              <span class="skill-level">熟练</span>
+          </article>
+          <article class="card reveal experience-project">
+            <div class="project-head">
+              <div class="project-title-row">
+                <h3>科学计算与 HPC</h3>
+                <span class="project-year">专项</span>
+              </div>
+              <p class="project-meta">
+                覆盖从化学建模到并行优化的完整链路，支撑大规模模拟与复现。
+              </p>
             </div>
-            <p class="skill-summary">
-              关注“信息密度 + 可读性 + 交互效率”，支持科研工具可视化。
+            <p class="project-summary">
+              Gaussian、ORCA、PySCF、QE、VASP、CP2K、LAMMPS；OpenMP/MPI
+              并行工作流；可复现 Linux 与容器环境。
             </p>
-            <ul class="skill-list">
-              <li>HTML / CSS / JavaScript 页面实现与组件化重构</li>
-              <li>Vue 单页应用与状态管理实践</li>
-              <li>交互流程设计与数据展示优化</li>
-              <li>Electron 桌面端封装与跨平台分发</li>
-            </ul>
-            <div class="skill-tags">
-              <span>Vue</span>
-              <span>JavaScript</span>
-              <span>UI 组件化</span>
-              <span>Electron</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>系统与工程化</h3>
-              <span class="skill-level">熟练</span>
-            </div>
-            <p class="skill-summary">
-              保障研发环境一致性，降低部署与协作成本。
-            </p>
-            <ul class="skill-list">
-              <li>Linux 环境配置、故障排查与日常运维</li>
-              <li>容器化交付（Docker / Apptainer）</li>
-              <li>CMake / Makefile 构建与依赖管理</li>
-              <li>Nix / NixOS 可复现环境方案</li>
-            </ul>
-            <div class="skill-tags">
-              <span>Linux</span>
-              <span>Docker</span>
-              <span>CMake</span>
-              <span>NixOS</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>计算化学与 HPC</h3>
-              <span class="skill-level">专项</span>
-            </div>
-            <p class="skill-summary">
-              覆盖从模型计算到并行性能优化的完整链路。
-            </p>
-            <ul class="skill-list">
-              <li>计算化学软件：Gaussian / ORCA / PySCF</li>
-              <li>材料平台：QE / VASP / CP2K</li>
-              <li>分子动力学：LAMMPS 建模与分析</li>
-              <li>并行库与数值库：OpenMP / MPI / MKL / OpenBLAS</li>
-            </ul>
-            <div class="skill-tags">
+            <div class="project-tags">
               <span>DFT</span>
               <span>MD</span>
               <span>MPI</span>
               <span>HPC</span>
             </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>机器学习与大模型</h3>
-              <span class="skill-level">应用</span>
+          </article>
+          <article class="card reveal experience-project">
+            <div class="project-head">
+              <div class="project-title-row">
+                <h3>ML、QML 与研发提效</h3>
+                <span class="project-year">应用</span>
+              </div>
+              <p class="project-meta">
+                结合经典 ML、QML 与 LLM 工具链，加快验证闭环与研发迭代。
+              </p>
             </div>
-            <p class="skill-summary">
-              以“可验证效果”为导向，结合经典 ML、QML 与 LLM 工具链。
+            <p class="project-summary">
+              PyTorch 训练与评估流程；特征工程与模型对比；QML 实验验证与 LLM
+              工具辅助研发。
             </p>
-            <ul class="skill-list">
-              <li>PyTorch 建模、训练与评估流程</li>
-              <li>特征工程、误差分析与模型对比</li>
-              <li>量子机器学习混合模型探索与验证</li>
-              <li>LLM 工具链用于研发提效与文档生产</li>
-            </ul>
-            <div class="skill-tags">
+            <div class="project-tags">
               <span>PyTorch</span>
               <span>QML</span>
-              <span>LLM 工具链</span>
+              <span>LLM Tooling</span>
               <span>模型评估</span>
             </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>网络与协作</h3>
-              <span class="skill-level">支撑</span>
-            </div>
-            <p class="skill-summary">保障跨地域团队协同开发的连通性与效率。</p>
-            <ul class="skill-list">
-              <li>网络工具、代理与远程开发链路配置</li>
-              <li>企业路由/交换机/AP 部署与维护</li>
-              <li>网络规划、性能诊断与故障定位</li>
-              <li>跨团队协作与技术沟通推进</li>
-            </ul>
-            <div class="skill-tags">
-              <span>网络运维</span>
-              <span>远程协作</span>
-              <span>故障排查</span>
-              <span>交付配合</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>语言与沟通</h3>
-              <span class="skill-level">日常</span>
-            </div>
-            <p class="skill-summary">
-              支持技术表达、跨团队沟通与英文资料处理。
-            </p>
-            <ul class="skill-list">
-              <li>中文：母语，技术讨论与文档表达</li>
-              <li>英文：熟练，会议交流与跨团队沟通</li>
-              <li>英文：熟练，论文阅读与技术写作</li>
-            </ul>
-            <div class="skill-tags">
-              <span>中文</span>
-              <span>English</span>
-              <span>技术写作</span>
-              <span>会议沟通</span>
-            </div>
-          </div>
-          <div class="card reveal">
-            <div class="skill-head">
-              <h3>学习与迁移能力</h3>
-              <span class="skill-level">优势</span>
-            </div>
-            <p class="skill-summary">
-              可在新领域快速补齐知识并落地到可交付结果。
-            </p>
-            <ul class="skill-list">
-              <li>从论文/文档快速抽象为工程任务与迭代计划</li>
-              <li>新工具链短周期上手并融入既有项目</li>
-              <li>兼顾研究探索与交付节奏，持续推进里程碑</li>
-            </ul>
-            <div class="skill-tags">
-              <span>快速学习</span>
-              <span>问题拆解</span>
-              <span>跨域迁移</span>
-              <span>结果导向</span>
-            </div>
-          </div>
+          </article>
         </div>
       </section>
 
