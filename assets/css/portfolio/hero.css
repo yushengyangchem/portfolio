@@ -58,6 +58,8 @@
   right: 0;
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 8px;
   z-index: 4;
 }
@@ -71,6 +73,43 @@
   border: var(--border);
   background: rgba(255, 255, 255, 0.72);
   box-shadow: var(--shadow-soft);
+}
+
+.hero__print-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 14px;
+  border: var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  box-shadow: var(--shadow-soft);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    transform var(--ease-standard),
+    border-color var(--ease-standard),
+    background-color var(--ease-standard),
+    color var(--ease-standard);
+}
+
+.hero__print-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(192, 57, 43, 0.45);
+  background: #fff7ef;
+  color: var(--accent);
+}
+
+.hero__print-button svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
 .hero__lang-link {
@@ -103,6 +142,10 @@
 
 :root[data-theme="dark"] .hero__lang-switch {
   background: rgba(28, 37, 46, 0.92);
+}
+
+:root[data-theme="dark"] .hero__print-button {
+  background: rgba(28, 37, 46, 0.94);
 }
 
 :root[data-theme="dark"] .hero__back-home {

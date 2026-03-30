@@ -48,22 +48,26 @@ document.querySelectorAll("[data-count='patents']").forEach((node) => {
 });
 
 const emailLink = document.querySelector(".email-link");
+const revealEmail = () => {
+  if (!emailLink || emailLink.dataset.revealed === "1") return;
+  const user = "zvtifohzbohdifo"
+    .split("")
+    .map((ch) => String.fromCharCode(ch.charCodeAt(0) - 1))
+    .join("");
+  const domain = ["moc", "liamg"]
+    .map((part) => part.split("").reverse().join(""))
+    .reverse()
+    .join(".");
+  const email = `${user}@${domain}`;
+  emailLink.textContent = email;
+  emailLink.href = `mailto:${email}`;
+  emailLink.dataset.revealed = "1";
+};
+
 if (emailLink) {
   emailLink.addEventListener("click", (event) => {
     event.preventDefault();
-    if (emailLink.dataset.revealed === "1") return;
-    const user = "zvtifohzbohdifo"
-      .split("")
-      .map((ch) => String.fromCharCode(ch.charCodeAt(0) - 1))
-      .join("");
-    const domain = ["moc", "liamg"]
-      .map((part) => part.split("").reverse().join(""))
-      .reverse()
-      .join(".");
-    const email = `${user}@${domain}`;
-    emailLink.textContent = email;
-    emailLink.href = `mailto:${email}`;
-    emailLink.dataset.revealed = "1";
+    revealEmail();
   });
 }
 
@@ -93,3 +97,15 @@ if (portfolioBackTop) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+
+const printButtons = document.querySelectorAll(".js-print-page");
+printButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    revealEmail();
+    window.print();
+  });
+});
+
+window.addEventListener("beforeprint", () => {
+  revealEmail();
+});

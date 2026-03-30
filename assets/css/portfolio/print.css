@@ -1,0 +1,429 @@
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --bg-accent: #ffffff;
+    --ink: #1f1a16;
+    --muted: #5f564e;
+    --accent: #9f2f24;
+    --accent-2: #215f53;
+    --card: #ffffff;
+    --shadow: none;
+    --shadow-soft: none;
+    --border: 1px solid rgba(31, 26, 22, 0.14);
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  body {
+    min-height: auto;
+    padding: 0;
+    overflow: visible;
+    font-size: 10.2pt;
+    line-height: 1.4;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .bg-orb,
+  .bg-grid,
+  .hero__controls,
+  .hero__nav,
+  .blog-back-top,
+  .theme-toggle-floating {
+    display: none !important;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1.45fr) minmax(48mm, 0.75fr);
+    gap: 6mm;
+    align-items: start;
+    margin-bottom: 6mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .hero__content {
+    max-width: none;
+  }
+
+  .hero__aside {
+    gap: 3mm;
+  }
+
+  .hero__card,
+  .card,
+  .focus-list li,
+  .core-stat {
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(31, 26, 22, 0.14) !important;
+  }
+
+  .hero__card,
+  .card {
+    padding: 3.2mm;
+  }
+
+  .hero__avatar {
+    width: 100%;
+    max-width: 40mm;
+    border-width: 1px;
+    box-shadow: none;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 2mm;
+    font-size: 7.5pt;
+  }
+
+  .hero__name {
+    font-size: 20pt !important;
+    line-height: 1.12;
+    margin-bottom: 2mm;
+  }
+
+  .hero__title {
+    display: inline-flex;
+    margin-bottom: 2mm;
+    padding: 1.8mm 3mm;
+    font-size: 10.2pt;
+  }
+
+  .hero__summary {
+    margin-bottom: 3mm;
+    font-size: 9.4pt;
+  }
+
+  .hero__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.8mm 4mm;
+    font-size: 8.9pt;
+  }
+
+  .hero__link {
+    justify-content: center;
+    padding: 2mm 2.6mm;
+    border-color: rgba(31, 26, 22, 0.18);
+    background: #ffffff;
+    font-size: 8.4pt;
+  }
+
+  main {
+    display: block;
+  }
+
+  .section {
+    margin-bottom: 5mm;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  .section__head {
+    margin-bottom: 2.5mm;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .section__head h2 {
+    font-size: 13.6pt;
+  }
+
+  .timeline,
+  .experience-group,
+  .experience-projects,
+  .grid,
+  .skills,
+  .focus-list,
+  .core-stats {
+    gap: 2.6mm;
+  }
+
+  .experience-projects,
+  .grid,
+  .skills,
+  .focus-list,
+  .core-stats,
+  html[lang="en"] #core-skills .focus-list,
+  html[lang="en"] #core-skills .core-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #extra .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #extra .grid > .card {
+    width: 100%;
+  }
+
+  .card,
+  .hero__card,
+  .experience-company,
+  .experience-project,
+  .focus-list li,
+  .core-stat,
+  .edu-head,
+  .company-head,
+  .project-head,
+  .project-title-row,
+  .card__meta,
+  #papers-list .result-list li,
+  #patents-list .result-list li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .company-head,
+  .edu-head,
+  .project-title-row,
+  .card__meta {
+    gap: 2mm;
+  }
+
+  .company-logo,
+  .edu-logo {
+    box-shadow: none;
+  }
+
+  .card h3 {
+    margin-bottom: 1.8mm;
+    font-size: 10.4pt;
+    line-height: 1.35;
+  }
+
+  .project-meta,
+  .project-summary,
+  .skill-summary,
+  .company-summary,
+  .card ul,
+  .card ol,
+  .card li,
+  .focus-list li > span:last-child,
+  .core-stat > span {
+    font-size: 8.9pt;
+  }
+
+  .company-role,
+  .company-role-title,
+  .company-time,
+  .edu-time,
+  .skill-summary,
+  .project-meta {
+    font-size: 8.5pt;
+  }
+
+  .project-tags,
+  .skill-tags,
+  .tag-row {
+    gap: 1.6mm;
+  }
+
+  .project-tags span,
+  .skill-tags span,
+  .experience-label,
+  .project-year,
+  .skill-level,
+  .focus-list__label {
+    white-space: normal;
+    font-size: 7.5pt;
+  }
+
+  .result-heading {
+    font-size: 10.2pt;
+    margin-bottom: 1.8mm;
+  }
+
+  #papers-list h4,
+  #patents-list h4 {
+    margin: 2.6mm 0 1.2mm;
+    font-size: 8.7pt;
+  }
+
+  #papers-list .result-list,
+  #patents-list .result-list {
+    margin: 0 0 2mm;
+  }
+
+  #papers-list .result-list li,
+  #patents-list .result-list li {
+    font-size: 8.35pt;
+    line-height: 1.3;
+    margin-bottom: 1.8mm;
+    padding-left: 1.8em;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  a,
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media print {
+  @supports (-moz-appearance: none) {
+    body {
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+
+    .hero,
+    .hero__aside,
+    .hero__meta,
+    .timeline,
+    .experience-group,
+    .experience-projects,
+    .grid,
+    .skills,
+    .focus-list,
+    .core-stats,
+    .company-head,
+    .edu-head,
+    .project-title-row,
+    .card__meta,
+    html[lang="en"] #core-skills .focus-list,
+    html[lang="en"] #core-skills .core-stats {
+      display: block;
+    }
+
+    .hero {
+      margin-bottom: 6mm;
+    }
+
+    .hero__content,
+    .hero__aside,
+    .section,
+    .card,
+    .hero__card,
+    .focus-list li,
+    .core-stat,
+    .experience-label {
+      margin-bottom: 3.5mm;
+    }
+
+    .hero__meta > span,
+    .project-tags span,
+    .skill-tags span,
+    .tag-row span {
+      display: inline-block;
+      margin-right: 2.5mm;
+      margin-bottom: 1.8mm;
+    }
+
+    .card,
+    .hero__card,
+    .core-stat,
+    .focus-list li,
+    .experience-project,
+    .experience-company {
+      background: #ffffff !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: 1px solid rgba(31, 26, 22, 0.18) !important;
+      border-radius: 10px !important;
+      outline: none !important;
+    }
+
+    .hero__title,
+    .hero__link,
+    .experience-label,
+    .project-year,
+    .skill-level,
+    .focus-list__label,
+    .project-tags span,
+    .skill-tags span {
+      background: #f8f8f8 !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: 1px solid rgba(31, 26, 22, 0.2) !important;
+      border-radius: 999px !important;
+      outline: none !important;
+    }
+
+    .company-logo,
+    .edu-logo {
+      background: #ffffff !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      border: 1px solid rgba(31, 26, 22, 0.18) !important;
+      border-radius: 50% !important;
+      outline: none !important;
+    }
+
+    .hero__title,
+    .hero__link,
+    .experience-label,
+    .project-year,
+    .skill-level,
+    .focus-list__label,
+    .project-tags span,
+    .skill-tags span {
+      padding: 1.2mm 2mm !important;
+      line-height: 1.25;
+    }
+
+    .project-tags,
+    .skill-tags,
+    .tag-row {
+      display: block;
+    }
+
+    .experience-company {
+      border-left: 4px solid var(--accent) !important;
+    }
+
+    .experience-project {
+      border-left: 4px solid rgba(30, 111, 92, 0.45) !important;
+    }
+
+    .company-head,
+    .edu-head,
+    .project-title-row,
+    .card__meta {
+      overflow: hidden;
+    }
+
+    .company-time,
+    .edu-time,
+    .project-year {
+      display: block;
+      margin-top: 1.5mm;
+    }
+
+    .focus-list li,
+    .core-stat,
+    .experience-project,
+    .experience-company {
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+    }
+
+    .company-logo,
+    .edu-logo {
+      padding: 1.2mm;
+    }
+  }
+}
